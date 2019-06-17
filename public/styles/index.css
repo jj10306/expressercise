@@ -1,40 +1,14 @@
 body {
-    background-color: #3890d8;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1.5fr repeat(3, 1fr) 10px repeat(3, 1fr) 1.5fr;
-    grid-template-areas: 
-    ". . ."
-    ". header ."
-    ". card1 ."
-    ". card1 ."
-    ". . ."
-    ". card2 ."
-    ". card2 ."
-    ". select ."
-    ". . .";
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-a {
-    text-decoration: none;
-}
-a:link {color: black;}      /* unvisited link */
-a:visited {color: black;}   /* visited link */
-a:hover {color: black;}     /* mouse over link */
-a:active {color: black;} 
-.header {
-    grid-area: header;
-    text-align: center;
-    color: #d5e0e4;
-}
-.card {
-    text-align: center;
-    background-color: #d5e0e4; 
-    border: #7d7f81 1px solid;
-    border-radius: 25px;
-}
-#strength {
-    grid-area: card1;
-}
-#injury {
-    grid-area: card2;
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }

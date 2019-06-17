@@ -1,27 +1,44 @@
-{{!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="styles/index.css">
-    <title>Document</title>
-</head> --}}
+    <title>Selection</title>
+</head>
 <body>
+    <div class="container">
+        <h1 class="header">Select 2 muscle groups:</h1>
+        <form method="POST" action="/workout" id="form">
+            <div class="selection" id="s1">
+                <input type="checkbox" name="abs" id="check-1">
+                <h3>Abs</h3>
+                <h3 class="emoji">👙</h3>
+            </div>
 
-<h1 class="header">Select a mode:</h1>
-<a href="selection.html" id="strength" class="card">
+            <div class="selection" id="s2">
+                <input type="checkbox" name="arms" id="check-2">
+                <h3>Arms</h3>
+                <h3 class="emoji">💪</h3>
+            </div>
 
-            <h1>💪</h1>
-            <h1>Strength Training</h1>
+            <div class="selection" id="s3">
+                <input type="checkbox" name="cardio" id="check-3">
+                <h3>Cardio</h3>
+                <h3 class="emoji">💓</h3>
+            </div>
 
-</a>
-
-<a href="#" id="injury" class="card">
-            <h1>🤕</h1>
-            <h1>Injury Prevention</h1>
-</a>
-
+            <div class="selection" id="s4">
+                <input type="checkbox" name="legs" id="check-4">
+                <h3>Legs</h3>
+                <h3 class="emoji">🏃‍</h3>
+            </div>
+        </form>       
+    </div>
+    <div class="button-wrapper">
+        <button type="submit" form="form" value="Submit">Generate Excercises</button>
+    </div>
+    
 
 </body>
-{{!-- </html> --}}
+</html>
