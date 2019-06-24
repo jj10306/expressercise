@@ -26,7 +26,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 //mongo configuration
 const mongoURI = "mongodb://jj10306:*JJ10306*@ds139037.mlab.com:39037/test-expressercise";
 mongoose
-    .connect(mongoURI)
+    .connect(mongoURI, { useNewUrlParser: true })
     .then(() => console.log('\nmongo connected....'))
     .catch(err => console.log(err));
 
@@ -62,27 +62,35 @@ app.get('/', (req, res) => {
     //how to refactor this method into own file
     Excercise.find({$or : [{group: selections}]})
         .then((results) => {
-            group1Arr = results.filter(excercise => excercise.group === selections[0]);
+        let group1Arr = results.filter(excercise => excercise.group === selections[0]);
             //contigent on always selecting 2 groups
-            group2Arr = results.filter(excercise => excercise.group === selections[1]);
+           let group2Arr = results.filter(excercise => excercise.group === selections[1]);
 
             let randomInt;
+            //keep track of which names are in the first group so no duplicates
+            let memberNames = new Set();
 
             while (finalGroup1.length < NUM_EXCERCISES) {
                 randomInt = random.integer(0, group1Arr.length - 1);
-                if (group1Arr[randomInt]) {
-                    finalGroup1.push(group1Arr[randomInt])
+                let ele = group1Arr[randomInt];
+                if (ele) {
+                    finalGroup1.push(ele);
+                    delete group1Arr[randomInt];
+                    memberNames.add(ele.name)
                 }
             }
             while (finalGroup2.length < NUM_EXCERCISES) {
                 randomInt = random.integer(0, group2Arr.length - 1);
-                if (group2Arr[randomInt]) {
-                    finalGroup2.push(group2Arr[randomInt])
+                let ele = group2Arr[randomInt];
+                if (ele) {
+                    if (! memberNames.has(ele.name)) {
+                        finalGroup2.push(ele);
+                        delete group2Arr[randomInt];     
+                    }
                 }
             }
             
         }).then(() => {
-            console.log('in da cut');
             res.render("workout", {
                 style: "workout.css",
                 script: "workout.js",
