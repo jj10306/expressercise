@@ -2,28 +2,52 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
     background-color:#3890d8;
-    /* padding: 0; */
     margin: 2px;
 }
 .content-container {
     display: grid;
-    grid-template-rows: 1fr;
+    grid-template-rows: .075fr 1fr .05fr;
     grid-template-areas: 
-    "circuit-headers"
-    "excercises";
+    "header"
+    "excercises"
+    "footer";
     grid-row-gap: 2px;
-    /* margin: 0 10%;
-    margin-top: 0; */
+}
+.header {
+    grid-area: header;
+    background-color: #d5e0e4;
+    display: flex;
+    justify-content: space-between;
+    border: #7d7f81 1px solid;
+}
 
+#back {
+    margin-left: 10px;
+    cursor: pointer;
 }
-/* .title {
-    grid-area: title;
-    background-color: aqua;
+#refresh {
+    margin-right: 10px;
+    cursor: pointer;
 }
-.info {
-    grid-area: info;
-    background-color: blueviolet;
-} */
+.footer {
+    grid-area: footer;
+    background-color: #d5e0e4;
+    display: flex;
+    border: #7d7f81 1px solid;
+    justify-content: space-around;
+    align-items: center;
+}
+.footer h3 {
+    padding-right: 75px;
+}
+.footer-images {
+    align-self: center;
+}
+.footer-images img {
+    width: 25px;
+    height: 25px;
+    margin-right:5px;
+}
 .circuit-headers {
     grid-area: circuit-headers;
     background-color: #d5e0e4;
@@ -35,48 +59,43 @@ body {
 .excercise-container {
     grid-area: excercises;
     display: grid;
-    grid-template: repeat(4, 1fr) / repeat(2, 1fr);
+    grid-template: .15fr repeat(4, 1fr) / repeat(2, 1fr);
     grid-template-areas: 
+    "title1 title2"
     "e1 e5"
     "e2 e6"
     "e3 e7"
     "e4 e8"; 
-    /* grid-row-gap: 15px; */
     grid-gap: 1px; 
     background-color: #73037C;
     max-width: 75vw;
     /* max-height: 60vh;  */
     margin: 0 auto;
-    padding: 2% 5%;
+    padding: 0 5% 2% 5%;
     border: 1px solid rgb(72, 3, 77);
     border-radius: 1%;
-
-
-
 }
 .excercise {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* border: 1px solid darkgrey; */
 }
 .excercise img {
     width: 100%;
     height: 100%;
     border-radius: 2%;
 }
-/* .left {
-    border-left: 1px solid darkgrey;
+.title {
+    color: #d5e0e4;
+    justify-self: center;
+    align-self: center;
 }
-.right {
-    border-right: 1px solid darkgrey;
+.title1 {
+    grid-area: title1;
 }
-.top {
-    border-top: 1px solid darkgrey;
+.title2 {
+    grid-area: title2;
 }
-.bottom {
-    border-bottom: 1px solid darkgrey;
-} */
 .e1 {
     grid-area: e1;
 }
