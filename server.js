@@ -108,6 +108,9 @@ app.get('/', (req, res) => {
         })
 
 })
+app.get("*", (req, res) => {
+    res.redirect("/");
+})
 
 const PORT = process.env.PORT || 5000;
 
