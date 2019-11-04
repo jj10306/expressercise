@@ -14,7 +14,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "moment": "^2.24.0",
-    "mongoose": "^5.6.0",
+    "mongoose": "^5.7.5",
     "multer": "^1.4.1",
     "random-js": "^2.1.0"
   },
